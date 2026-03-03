@@ -1,0 +1,17 @@
+import http.server
+import socketserver
+import webbrowser
+import os
+
+PORT = 8000
+
+# Change directory to where your welcome.html is saved
+os.chdir("C:\Bonds_Portfolio\Automation_Scripts")  # <-- update path if needed C:\Users\Admin\Downloads\git_code\welcome.html
+
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Serving at http://localhost:{PORT}/welcome.html")
+    webbrowser.open(f"http://localhost:{PORT}/welcome.html")
+    httpd.serve_forever()
+# ARA-Pratu
